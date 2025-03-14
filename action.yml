@@ -1,0 +1,12 @@
+name: "Setup virtualization"
+description: "Setup virtualization on the runner"
+author: "Gerard Braad <me@gbraad.nl>"
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        sudo apt-get update
+        sudo apt install -y \
+          qemu-kvm libvirt-daemon libvirt-daemon-system virtiofsd virt-manager
+        sudo usermod -a -G libvirt $USER
+      shell: bash
