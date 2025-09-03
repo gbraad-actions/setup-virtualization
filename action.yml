@@ -10,4 +10,6 @@ runs:
           qemu-kvm qemu-user libvirt-daemon libvirt-daemon-system virtiofsd virt-manager
         sudo usermod -a -G kvm $USER
         sudo usermod -a -G libvirt $USER
+        # prevents the user having to re-login
+        sudo chmod 666 /dev/kvm
       shell: bash
